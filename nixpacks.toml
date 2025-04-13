@@ -1,0 +1,16 @@
+# nixpacks.toml
+# Configuração para deploy com Nixpacks
+
+[phases.install]
+# Comando para instalar dependências usando npm
+cmds = ["npm install --legacy-peer-deps"] # Adicionado --legacy-peer-deps por precaução com dependências mais antigas
+
+[phases.build]
+# Comando para construir a aplicação (executa o script 'build' do package.json)
+cmds = ["npm run build"]
+# Especifica o diretório de publicação para o Nixpacks/Caddy
+publish = "dist"
+
+# Opcional: Especificar o diretório de publicação
+# [build]
+# publish = "dist"

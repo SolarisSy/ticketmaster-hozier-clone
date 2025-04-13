@@ -1,0 +1,22 @@
+# nixpacks.toml
+
+[phases.setup]
+# Especifica para usar Node.js versão 20
+providers = ["node@20"]
+
+[phases.install]
+# Comando para instalar dependências usando npm
+cmds = ["npm install --legacy-peer-deps"]
+
+[phases.build]
+# Comando para construir a aplicação
+cmds = ["npm run build"]
+
+[start]
+# Chama 'serve' diretamente, esperando que esteja no PATH via node_modules/.bin
+# Ainda servindo 'dist' e usando a porta da variável de ambiente PORT
+cmd = "serve -s dist"
+
+# Opcional: Especificar o diretório de publicação
+# [build]
+# publish = "dist"
